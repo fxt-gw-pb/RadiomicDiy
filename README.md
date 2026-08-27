@@ -12,9 +12,11 @@
 | 01 医学影像基础 | CT / MRI / PET、voxel、解剖平面、spacing、HU 与窗宽窗位、domain shift | 9 |
 | 02 影像文件与工具 | DICOM、NIfTI、PACS、3D Slicer、ITK-SNAP、ROI 术语 | 9 |
 | 03 Python 医学图像处理 | NumPy、pydicom、SimpleITK、nibabel、CT / mask / 叠加显示 | 8 |
+| 04 医学图像预处理 | 重采样、插值、归一化、窗宽窗位、裁剪、滤波、阈值、形态学、数据增强 | 11 |
+| 05 Radiomics | 总体思想与工作流、一阶 / 形状特征、五类纹理矩阵、Wavelet 与 LoG、灰度离散化、PyRadiomics、IBSI、Delta Radiomics | 16 |
 | 附 | 术语表、学习清单 | 2 |
 
-模块 04（医学图像预处理）正文已完成，其余模块规划中，见站内「后续模块」。
+模块 06 起规划中，见站内「后续模块」。
 
 ## 网页特点
 
