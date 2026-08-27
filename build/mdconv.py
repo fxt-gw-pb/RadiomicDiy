@@ -205,6 +205,9 @@ def _join(segments: list[str]) -> str:
     return out
 
 
+Q3D = chr(34) * 3
+Q3S = chr(39) * 3
+
 PROMPT_RE = re.compile(r"图片生成提示词\s+(IMG-\d{3})")
 
 
@@ -406,10 +409,16 @@ class Converter:
                     buf.append(f"<span class='c-com'>{esc(line[i:])}</span>")
                     break
                 if ch in "\"'":
-                    j = i + 1
-                    while j < n and line[j] != ch:
-                        j += 2 if line[j] == "\\" else 1
-                    j = min(j + 1, n)
+                    # 三引号（docstring）要整段当成字符串，否则中间的词会被误着色
+                    quote3 = line[i:i + 3]
+                    if quote3 in (Q3D, Q3S):
+                        end = line.find(quote3, i + 3)
+                        j = (end + 3) if end != -1 else n
+                    else:
+                        j = i + 1
+                        while j < n and line[j] != ch:
+                            j += 2 if line[j] == "\\" else 1
+                        j = min(j + 1, n)
                     buf.append(f"<span class='c-str'>{esc(line[i:j])}</span>")
                     i = j
                     continue
