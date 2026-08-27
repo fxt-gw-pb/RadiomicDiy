@@ -1,0 +1,101 @@
+"""Site structure: which files, in what order, under which module."""
+import os
+from pathlib import Path
+
+# 知识库 Markdown 的位置；换机器时用 MIA_ROOT 环境变量覆盖
+ROOT = Path(os.environ.get(
+    "MIA_ROOT",
+    "/Users/fpb/Obsidian_Vault/self-learning/radiomics/medical_imaging_ai_selfstudy"))
+
+MODULES = [
+    {
+        "id": "m00", "num": "00", "name": "学习导航",
+        "tag": "起点",
+        "blurb": "先看清整条主线，再决定从哪一步开始。",
+        "dir": "00_学习导航",
+        "files": [
+            "00_医学影像AI全景图.md",
+            "01_如何使用这套知识库.md",
+            "02_建议学习顺序.md",
+            "03_数学知识按需补充.md",
+        ],
+    },
+    {
+        "id": "m01", "num": "01", "name": "医学影像基础",
+        "tag": "概念",
+        "blurb": "CT、MRI、PET 到底在拍什么，以及一份影像为什么不只是一张图片。",
+        "dir": "01_医学影像基础",
+        "files": [
+            "01_医学影像AI到底在处理什么.md",
+            "02_CT基础.md",
+            "03_MRI基础.md",
+            "04_PET与PET_CT基础.md",
+            "05_Pixel_Voxel与三维Volume.md",
+            "06_Axial_Coronal_Sagittal.md",
+            "07_Spacing_Resolution_SliceThickness.md",
+            "08_CT_HU与Window.md",
+            "09_医学影像中的Domain_Shift.md",
+        ],
+    },
+    {
+        "id": "m02", "num": "02", "name": "影像文件与工具",
+        "tag": "文件",
+        "blurb": "把概念落到 DICOM、NIfTI 和你真正会打开的那几个软件里。",
+        "dir": "02_医学影像文件与工具",
+        "files": [
+            "README.md",
+            "01_DICOM.md",
+            "02_DICOM_Series如何组成三维CT.md",
+            "03_NIfTI.md",
+            "04_DICOM与NIfTI的区别.md",
+            "05_PACS基本概念.md",
+            "06_3D_Slicer入门.md",
+            "07_ITK_SNAP入门.md",
+            "08_ROI_VOI_Mask_Label.md",
+        ],
+    },
+    {
+        "id": "m03", "num": "03", "name": "Python 医学图像处理",
+        "tag": "实操",
+        "blurb": "第一个动手模块：把数据读出来、显示对、检查清楚。",
+        "dir": "03_Python医学图像处理",
+        "files": [
+            "README.md",
+            "01_NumPy中的医学影像.md",
+            "02_pydicom.md",
+            "03_SimpleITK.md",
+            "04_nibabel.md",
+            "05_读取和显示CT.md",
+            "06_读取和显示Mask.md",
+            "07_CT与Mask叠加显示.md",
+        ],
+    },
+    {
+        "id": "mref", "num": "附", "name": "随时可查",
+        "tag": "工具",
+        "blurb": "术语表和学习清单，学到哪一步都可以回来对一下。",
+        "dir": ".",
+        "files": [
+            "GLOSSARY.md",
+            "STUDY_CHECKLIST.md",
+        ],
+    },
+]
+
+ROADMAP = [
+    ("04", "医学图像预处理", "重采样、插值、归一化、增强——正文已完成，网页版整理中"),
+    ("05", "Radiomics", "从图像到特征向量的标准工作流"),
+    ("06", "Radiomics 统计与机器学习", "特征选择、模型、验证与 data leakage"),
+    ("07", "医学 AI 模型评价", "AUC 之外：校准、决策曲线与临床价值"),
+    ("08", "PyTorch 与 CNN", "张量、Dataset、训练循环"),
+    ("09", "ResNet 与迁移学习", "残差结构与预训练权重的用法"),
+    ("10", "医学图像分割与 U-Net", "从阈值到学习式分割"),
+    ("11", "3D 医学图像分割", "2D / 2.5D / 3D 与 nnU-Net"),
+    ("12", "Vision Transformer", "注意力、Q/K/V 与 patch"),
+    ("13", "SAM 与医学基础模型", "prompt 驱动的通用分割"),
+    ("14", "PropNet 与 PAM 精读", "两篇论文的逐段拆解"),
+    ("15", "数字病理 AI", "WSI、tiling 与 MIL"),
+    ("16", "多模态医学 AI", "影像 + 文本 + 组学"),
+    ("17", "科研方法与复现", "队列设计、报告规范与可复现性"),
+    ("18", "实践项目", "七个端到端练习"),
+]
