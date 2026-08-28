@@ -116,7 +116,7 @@ mcards = "".join(
 road_html = "".join(
     f"<div class='rrow'><span class='rn'>{n}</span>"
     f"<span class='rt'>{html.escape(t)}<span class='rd'>{html.escape(d)}</span></span>"
-    f"<span class='rs'>{'正文已完成' if n == '04' else '规划中'}</span></div>"
+        f"<span class='rs'>规划中</span></div>"
     for n, t, d in ROADMAP)
 
 total_ch = len(chapters)

@@ -9,14 +9,19 @@
 | 模块 | 内容 | 篇数 |
 |---|---|---|
 | 00 学习导航 | 全景图、使用方法、学习顺序、按需补数学 | 4 |
-| 01 医学影像基础 | CT / MRI / PET、voxel、解剖平面、spacing、HU 与窗宽窗位、domain shift | 9 |
-| 02 影像文件与工具 | DICOM、NIfTI、PACS、3D Slicer、ITK-SNAP、ROI 术语 | 9 |
+| 01 医学影像基础 | X 线/DR、CT、HU 与窗、MRI、超声、PET、病理、voxel、解剖平面、spacing、domain shift | 13 |
+| 02 影像文件与工具 | DICOM、NIfTI、NRRD/MHA 与标注格式、dcm2niix、PACS、去标识化、Slicer、ITK-SNAP、ROI、数据目录 | 13 |
 | 03 Python 医学图像处理 | NumPy、pydicom、SimpleITK、nibabel、CT / mask / 叠加显示 | 8 |
 | 04 医学图像预处理 | 重采样、插值、归一化、窗宽窗位、裁剪、滤波、阈值、形态学、数据增强 | 11 |
 | 05 Radiomics | 总体思想与工作流、一阶 / 形状特征、五类纹理矩阵、Wavelet 与 LoG、灰度离散化、PyRadiomics、IBSI、Delta Radiomics | 16 |
+| 06 Radiomics 统计与机器学习 | 过拟合、ICC、标准化与筛选、七类模型、交叉验证与超参数搜索 | 17 |
+| 07 医学 AI 模型评价 | 划分与泄漏、AUC、阈值指标、校准、外部验证、SHAP、决策曲线 | 16 |
+| 08 PyTorch 与 CNN | 张量、Dataset、训练循环、卷积、感受野、BatchNorm、激活 | 15 |
+| 09 ResNet 与迁移学习 | 残差连接、ResNet-18/34/50、预训练、特征提取与 fine-tuning | 8 |
+| 10 医学图像分割与 U-Net | 任务定义、encoder/decoder/skip、Dice/IoU、loss 与类别不平衡 | 15 |
 | 附 | 术语表、学习清单 | 2 |
 
-模块 06 起规划中，见站内「后续模块」。
+模块 11 起规划中，见站内「后续模块」。
 
 ## 网页特点
 
