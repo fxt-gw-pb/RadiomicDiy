@@ -286,7 +286,17 @@ $$('.mod-head').forEach(h => h.addEventListener('click', () => {
   const m = h.parentElement;
   m.dataset.open = m.dataset.open === '1' ? '0' : '1';
 }));
-$('#menuBtn').addEventListener('click', () => $('.rail').classList.toggle('open'));
+$('#menuBtn').addEventListener('click', () => setNav(!$('.rail').classList.contains('open')));
+function setNav(open) {
+  $('.rail').classList.toggle('open', open);
+  const scrim = $('#scrim');
+  if (scrim) scrim.classList.toggle('on', open);
+  const btn = $('#menuBtn');
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+$('#scrim').addEventListener('click', () => setNav(false));
+$('#railClose').addEventListener('click', () => setNav(false));
+addEventListener('keydown', e => { if (e.key === 'Escape') setNav(false); });
 
 /* ---------- search ---------- */
 $('#q').addEventListener('input', e => {
@@ -344,7 +354,7 @@ function route() {
     }
   }
   scroller.scrollTop = 0;
-  $('.rail').classList.remove('open');
+  setNav(false);
 }
 addEventListener('hashchange', route);
 
@@ -480,7 +490,7 @@ JS = (JS.replace("__META__", json.dumps(meta, ensure_ascii=False))
 
 HTML = f"""<meta charset="utf-8">
 <title>AI for Medical Imaging &amp; Radiomics 入坑指南</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="{LOGO_URI}">
 <link rel="apple-touch-icon" href="{LOGO_URI}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -489,10 +499,11 @@ HTML = f"""<meta charset="utf-8">
 <style>{CSS}</style>
 
 <div class="shell">
-  <aside class="rail">
+  <aside class="rail" id="rail">
     <div class="brand">
       <img class="mark" src="{LOGO_URI}" width="36" height="36" alt="">
-      <div><h1>入坑指南</h1><p>Medical Imaging &amp; Radiomics</p></div>
+      <div class="brand-text"><h1>入坑指南</h1><p>Medical Imaging &amp; Radiomics</p></div>
+      <button class="rail-close" id="railClose" type="button">关闭</button>
     </div>
     <div class="search"><input id="q" type="search" placeholder="搜索章节或小节…" aria-label="搜索"></div>
     <nav class="nav">
@@ -504,10 +515,11 @@ HTML = f"""<meta charset="utf-8">
       <span style="font-family:var(--mono);font-size:11px;color:var(--faint)">共 {total_ch} 篇</span>
     </div>
   </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录"></button>
 
   <div class="main">
     <div class="topbar">
-      <button class="menu" id="menuBtn" type="button">目录</button>
+      <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="rail">目录</button>
       <span class="crumb" id="crumb"></span>
       <span class="readbar" id="readbar"></span>
     </div>
