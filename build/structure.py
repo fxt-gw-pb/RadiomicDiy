@@ -65,10 +65,11 @@ MODULES = [
     {
         "id": "m03", "num": "03", "name": "Python 医学图像处理",
         "tag": "实操",
-        "blurb": "第一个动手模块：把数据读出来、显示对、检查清楚。",
+        "blurb": "第一个动手模块：把数据读出来、显示对、写回去，再放大到整个队列并查一遍。",
         "dir": "03_Python医学图像处理",
         "files": [
             "README.md",
+            "00_Python环境与依赖.md",
             "01_NumPy中的医学影像.md",
             "02_pydicom.md",
             "03_SimpleITK.md",
@@ -76,6 +77,9 @@ MODULES = [
             "05_读取和显示CT.md",
             "06_读取和显示Mask.md",
             "07_CT与Mask叠加显示.md",
+            "08_保存与写出文件.md",
+            "09_批量处理与错误处理.md",
+            "10_数据质检脚本.md",
         ],
     },
     {
@@ -100,7 +104,7 @@ MODULES = [
     {
         "id": "m05", "num": "05", "name": "Radiomics",
         "tag": "特征",
-        "blurb": "从一个 ROI 到一串数字：五类纹理矩阵、离散化与 PyRadiomics。",
+        "blurb": "从一个 ROI 到一张表：五类纹理矩阵、离散化、PyRadiomics 与结果表的首轮检查。",
         "dir": "05_Radiomics",
         "files": [
             "README.md",
@@ -119,6 +123,7 @@ MODULES = [
             "13_PyRadiomics.md",
             "14_IBSI标准化.md",
             "15_Delta_Radiomics.md",
+            "16_特征表解读与首轮检查.md",
         ],
     },
     {
@@ -144,6 +149,10 @@ MODULES = [
             "14_LightGBM.md",
             "15_交叉验证.md",
             "16_超参数搜索.md",
+            "17_类别不平衡与样本量.md",
+            "18_Radscore与列线图.md",
+            "19_生存分析与Cox模型.md",
+            "20_端到端Pipeline.md",
         ],
     },
     {
@@ -207,6 +216,9 @@ MODULES = [
             "05_Pretrained_Model.md",
             "06_Feature_Extraction.md",
             "07_Fine_Tuning.md",
+            "08_迁移学习到底有没有用.md",
+            "09_医学影像预训练模型.md",
+            "10_把2D预训练用到3D数据.md",
         ],
     },
     {
@@ -233,6 +245,24 @@ MODULES = [
         ],
     },
     {
+        "id": "m11", "num": "11", "name": "3D 医学图像分割",
+        "tag": "三维",
+        "blurb": "从 2D、2.5D 到 3D U-Net：沿物理空间、patch 和完整 volume 推断追踪每一步。",
+        "dir": "11_3D医学图像分割",
+        "files": [
+            "README.md",
+            "01_2D_Segmentation.md",
+            "02_2_5D_Segmentation.md",
+            "03_3D_Segmentation.md",
+            "04_Conv2D与Conv3D.md",
+            "05_3D_UNet.md",
+            "06_显存与Patch_Training.md",
+            "07_Inter_Slice_Context.md",
+            "08_nnUNet.md",
+            "09_MONAI简介.md",
+        ],
+    },
+    {
         "id": "mref", "num": "附", "name": "随时可查",
         "tag": "工具",
         "blurb": "术语表和学习清单，学到哪一步都可以回来对一下。",
@@ -245,12 +275,9 @@ MODULES = [
 ]
 
 ROADMAP = [
-    ("11", "3D 医学图像分割", "2D / 2.5D / 3D 与 nnU-Net"),
     ("12", "Vision Transformer", "注意力、Q/K/V 与 patch"),
     ("13", "SAM 与医学基础模型", "prompt 驱动的通用分割"),
     ("14", "PropNet 与 PAM 精读", "两篇论文的逐段拆解"),
     ("15", "数字病理 AI", "WSI、tiling 与 MIL"),
     ("16", "多模态医学 AI", "影像 + 文本 + 组学"),
-    ("17", "科研方法与复现", "队列设计、报告规范与可复现性"),
-    ("18", "实践项目", "七个端到端练习"),
 ]
