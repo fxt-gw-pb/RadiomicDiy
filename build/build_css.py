@@ -157,7 +157,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   margin:0 0 18px; text-wrap:balance; letter-spacing:-.01em;
 }
 .hero-logo{width:64px;height:64px;display:block;margin:0 0 18px;object-fit:contain}
-.hero .lede{font-size:16.5px; color:var(--ink-2); margin:0 0 26px; max-width:46ch}
+.hero .lede{font-size:16.5px; color:var(--ink-2); margin:0 0 26px; max-width:54ch}
 .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 .cta{
   display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:7px;

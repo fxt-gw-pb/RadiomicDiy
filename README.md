@@ -1,6 +1,6 @@
 # AI for Medical Imaging & Radiomics 入坑指南
 
-人和 AI 一起写的自学材料。从影像基础到 Radiomics 和深度学习。
+从影像基础讲到 Radiomics 和深度学习。看完可以入门医学影像 AI，能读懂论文里的数据、方法和评价。
 
 🔗 **在线阅读：** https://fxt-gw-pb.github.io/RadiomicDiy/
 

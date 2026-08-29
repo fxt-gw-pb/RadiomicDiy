@@ -153,9 +153,10 @@ HOME = f"""
   <div class="hero-in">
     <div>
       <img class="hero-logo" src="{LOGO_URI}" width="64" height="64" alt="">
-      <p class="eyebrow">人与 AI 一起写的</p>
+      <p class="eyebrow">入坑指南</p>
       <h2>AI for Medical Imaging &amp; Radiomics</h2>
-      <p class="lede">入坑指南。从影像基础到 Radiomics 和深度学习，按左边目录看。</p>
+      <p class="lede">从影像是什么、文件怎么读，讲到 Radiomics、CNN 和分割。
+      看完可以入门医学影像 AI：能读懂论文里数据、方法和评价在说什么，也知道自己缺哪一块。</p>
       <div class="cta-row">
         <a class="cta" href="#/{chapters[0]['id']}">从第一章开始</a>
         <a class="cta ghost" href="#modules">看看有哪些模块</a>
