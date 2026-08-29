@@ -20,9 +20,14 @@
 | 09 ResNet 与迁移学习 | 残差连接、ResNet-18/34/50、预训练、特征提取、fine-tuning、医学预训练与 2D→3D | 11 |
 | 10 医学图像分割与 U-Net | 任务定义、encoder/decoder/skip、Dice/IoU、loss 与类别不平衡 | 15 |
 | 11 3D 医学图像分割 | 2D / 2.5D / 3D、Conv3d、3D U-Net、显存与 patch、nnU-Net、MONAI | 10 |
+| 12 Vision Transformer | Q/K/V、self/cross-attention、位置编码、ViT、与 CNN 比较 | 10 |
+| 13 SAM 与医学基础模型 | Foundation model、promptable segmentation、image/prompt encoder、mask decoder、MedSAM | 11 |
+| 14 PropNet 与 PAM 精读 | 二维标注传播到三维 mask：support/query、Box2Mask、PropMask、与 MedSAM/nnU-Net 比较 | 15 |
+| 15 数字病理 AI | H&E、WSI、tiling、QuPath、细胞核分割、pathomics、MIL、CLAM | 14 |
+| 16 多模态医学 AI | 患者对齐、影像+临床/病理/组学、fusion 与常见陷阱 | 8 |
 | 附 | 术语表、学习清单 | 2 |
 
-全站 160 篇。模块 12 起规划中，见站内「后续模块」。
+全站 218 篇。规划中的模块已全部上线。
 
 ## 网页特点
 
@@ -52,7 +57,7 @@ python build/build.py
 | `build/build_css.py` | 设计 token 与全部样式 |
 
 新增模块只需在 `structure.py` 的 `MODULES` 里加一段并从 `ROADMAP` 删掉对应行，
-导航、进度、搜索、翻页、页内目录都会自动跟上。不要手工编辑 `index.html`。模块 12 起等明确要求后再加入 `MODULES`。
+导航、进度、搜索、翻页、页内目录都会自动跟上。不要手工编辑 `index.html`。
 
 ## 说明
 

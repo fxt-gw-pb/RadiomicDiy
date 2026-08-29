@@ -118,6 +118,9 @@ road_html = "".join(
     f"<span class='rt'>{html.escape(t)}<span class='rd'>{html.escape(d)}</span></span>"
         f"<span class='rs'>规划中</span></div>"
     for n, t, d in ROADMAP)
+roadmap_section = (
+    f'<p class="sec-title">后续模块</p>\n  <div class="road">{road_html}</div>'
+    if ROADMAP else "")
 
 total_ch = len(chapters)
 
@@ -167,9 +170,7 @@ HOME = f"""
 
   <p class="sec-title" id="modules">现在可以学的模块</p>
   <div class="mods">{mcards}</div>
-
-  <p class="sec-title">后续模块</p>
-  <div class="road">{road_html}</div>
+  {roadmap_section}
 </div>
 """
 
