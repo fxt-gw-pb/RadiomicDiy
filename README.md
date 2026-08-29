@@ -1,6 +1,6 @@
-# 医学影像 AI 自学室
+# AI for Medical Imaging & Radiomics 入坑指南
 
-一个面向医学、公共卫生与临床科研背景学习者的**医学影像 AI / 影像组学自学知识库**的网页版。
+人和 AI 一起写的自学材料。从影像基础到 Radiomics 和深度学习。
 
 🔗 **在线阅读：** https://fxt-gw-pb.github.io/RadiomicDiy/
 
@@ -55,6 +55,7 @@ python build/build.py
 | `build/structure.py` | 模块与章节顺序、后续模块路线图 |
 | `build/mdconv.py` | Markdown → HTML（表格、代码高亮、数学、图片内嵌） |
 | `build/build_css.py` | 设计 token 与全部样式 |
+| `build/logo.jpg` | 侧栏与页签图标 |
 
 新增模块只需在 `structure.py` 的 `MODULES` 里加一段并从 `ROADMAP` 删掉对应行，
 导航、进度、搜索、翻页、页内目录都会自动跟上。不要手工编辑 `index.html`。

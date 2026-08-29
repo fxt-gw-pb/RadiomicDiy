@@ -59,20 +59,17 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 .brand{
   padding:22px 22px 16px; border-bottom:1px solid var(--line-soft);
-  display:flex; gap:12px; align-items:flex-start;
+  display:flex; gap:12px; align-items:center;
 }
 .mark{
-  width:34px;height:34px;flex:none;border-radius:2px;position:relative;
-  background:
-    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 25%,
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/25% 100%,
-    var(--sunken);
-  border:1px solid var(--line);
+  width:36px;height:36px;flex:none;object-fit:contain;display:block;
 }
-.mark::after{
-  content:""; position:absolute; inset:0; margin:auto; width:15px;height:15px;
-  border-radius:50%; border:1.5px solid var(--overlay); background:color-mix(in srgb,var(--overlay) 22%, transparent);
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .mark,
+  :root:not([data-theme="light"]) .hero-logo{filter:invert(1)}
 }
+:root[data-theme="dark"] .mark,
+:root[data-theme="dark"] .hero-logo{filter:invert(1)}
 .brand h1{font-family:var(--serif); font-size:17px; line-height:1.35; margin:0; font-weight:600; letter-spacing:.01em}
 .brand p{margin:2px 0 0; font-size:11.5px; color:var(--faint); font-family:var(--mono); letter-spacing:.06em; text-transform:uppercase}
 
@@ -159,7 +156,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   font-family:var(--serif); font-weight:600; font-size:clamp(29px,3.4vw,40px); line-height:1.18;
   margin:0 0 18px; text-wrap:balance; letter-spacing:-.01em;
 }
-.hero h2 em{font-style:normal; color:var(--overlay)}
+.hero-logo{width:64px;height:64px;display:block;margin:0 0 18px;object-fit:contain}
 .hero .lede{font-size:16.5px; color:var(--ink-2); margin:0 0 26px; max-width:46ch}
 .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
 .cta{

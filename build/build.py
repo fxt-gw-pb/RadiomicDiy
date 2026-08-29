@@ -1,13 +1,37 @@
 from __future__ import annotations
 
+import base64
 import html
+import io
 import json
 import re
 from pathlib import Path
 
+from PIL import Image
+
 import mdconv
 from build_css import CSS
 from structure import MODULES, ROADMAP, ROOT
+
+SITE_DIR = Path(__file__).resolve().parent
+LOGO_PATH = SITE_DIR / "logo.jpg"
+
+
+def _logo_uri(path: Path, size: int) -> str:
+    """Black ink, white background → transparent PNG data URI."""
+    if not path.is_file():
+        raise SystemExit(f"missing logo: {path}")
+    gray = Image.open(path).convert("L")
+    zero = Image.new("L", gray.size, 0)
+    alpha = Image.eval(gray, lambda v: 255 - v)
+    rgba = Image.merge("RGBA", (zero, zero, zero, alpha))
+    rgba = rgba.resize((size, size), Image.Resampling.LANCZOS)
+    buf = io.BytesIO()
+    rgba.save(buf, format="PNG")
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+LOGO_URI = _logo_uri(LOGO_PATH, 160)
 
 OUT = Path(__file__).resolve().parent / "radiomics_site.html"
 
@@ -128,11 +152,10 @@ HOME = f"""
 <section class="hero">
   <div class="hero-in">
     <div>
-      <p class="eyebrow">医学影像 AI · 自学知识库</p>
-      <h2>一份 CT，在计算机眼里其实是<em>带着物理坐标的数字</em></h2>
-      <p class="lede">这套知识库写给从医学、公共卫生或临床科研走进影像 AI 的人。
-      不假设你写过深度学习代码，但假设你想真正弄懂每一步在做什么——
-      而不是把别人的脚本跑通就算数。</p>
+      <img class="hero-logo" src="{LOGO_URI}" width="64" height="64" alt="">
+      <p class="eyebrow">人与 AI 一起写的</p>
+      <h2>AI for Medical Imaging &amp; Radiomics</h2>
+      <p class="lede">入坑指南。从影像基础到 Radiomics 和深度学习，按左边目录看。</p>
       <div class="cta-row">
         <a class="cta" href="#/{chapters[0]['id']}">从第一章开始</a>
         <a class="cta ghost" href="#modules">看看有哪些模块</a>
@@ -313,7 +336,7 @@ function route() {
     if (mod) mod.dataset.open = '1';
     buildSpy(doc);
   } else {
-    $('#crumb').innerHTML = '<b>医学影像 AI 自学知识库</b>';
+    $('#crumb').innerHTML = '<b>入坑指南</b>';
     if (h && h !== '/' && $('#' + h)) {
       $('#' + h).scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
@@ -455,8 +478,10 @@ JS = (JS.replace("__META__", json.dumps(meta, ensure_ascii=False))
         .replace("__ORDER__", json.dumps(order)))
 
 HTML = f"""<meta charset="utf-8">
-<title>医学影像 AI 自学室</title>
+<title>AI for Medical Imaging &amp; Radiomics 入坑指南</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="{LOGO_URI}">
+<link rel="apple-touch-icon" href="{LOGO_URI}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -465,8 +490,8 @@ HTML = f"""<meta charset="utf-8">
 <div class="shell">
   <aside class="rail">
     <div class="brand">
-      <div class="mark" aria-hidden="true"></div>
-      <div><h1>医学影像 AI 自学室</h1><p>Radiomics · Self-study</p></div>
+      <img class="mark" src="{LOGO_URI}" width="36" height="36" alt="">
+      <div><h1>入坑指南</h1><p>Medical Imaging &amp; Radiomics</p></div>
     </div>
     <div class="search"><input id="q" type="search" placeholder="搜索章节或小节…" aria-label="搜索"></div>
     <nav class="nav">
